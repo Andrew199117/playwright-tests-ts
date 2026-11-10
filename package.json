@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:docker": "docker compose -f docker-compose.local.yml run --rm --build playwright"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Andrew199117/playwright-tests-ts.git"

@@ -1,0 +1,13 @@
+services:
+  playwright:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm test
+    environment:
+      CI: "1"
+    ipc: host
+    init: true
+    volumes:
+      - ./playwright-report:/app/playwright-report
+      - ./test-results:/app/test-results
