@@ -19,6 +19,6 @@ export default async () => {
 
   await expect(page.getByText("You logged into a secure area!")).toBeVisible();
 
-  await context.storageState({ path: "state.js" });
+  await context.storageState({ path: "state.json" });
   await browser.close();
 };
