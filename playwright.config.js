@@ -13,8 +13,15 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
+<<<<<<< HEAD
   testDir: './tests',
   /* Run tests in files in parallel */
+=======
+  testDir: "./tests",
+  globalSetup: "./globalSetup.js",
+  globalTeardown: "./globalTeardown.js",
+
+>>>>>>> 7ee6dab (feat: globalSetup/globalTeardown)
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
@@ -29,8 +36,14 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
+<<<<<<< HEAD
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+=======
+    trace: "on",
+    screenshot: "on",
+    storageState: "state.js",
+>>>>>>> 7ee6dab (feat: globalSetup/globalTeardown)
   },
 
   /* Configure projects for major browsers */
