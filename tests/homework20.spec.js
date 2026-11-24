@@ -54,10 +54,35 @@ test("TC-04: Drag and Drop", async ({ page }) => {
   await expect(columnA).toHaveText("A");
   await expect(columnB).toHaveText("B");
 
-  // Drag A to B
-  await columnA.dragTo(columnB);
+  // Get coordinates of both squares
+  const boxA = await columnA.boundingBox();
+  const boxB = await columnB.boundingBox();
 
-  // Verify swapped positions
+  expect(boxA).not.toBeNull();
+  expect(boxB).not.toBeNull();
+
+  // Calculate center coordinates
+  const startX = boxA.x + boxA.width / 2;
+  const startY = boxA.y + boxA.height / 2;
+
+  const endX = boxB.x + boxB.width / 2;
+  const endY = boxB.y + boxB.height / 2;
+
+  // Move mouse to square A
+  await page.mouse.move(startX, startY);
+
+  // Hold left mouse button
+  await page.mouse.down();
+
+  // Drag square A to square B
+  await page.mouse.move(endX, endY, {
+    steps: 20,
+  });
+
+  // Release mouse button
+  await page.mouse.up();
+
+  // Verify that squares swapped places
   await expect(columnA).toHaveText("B");
   await expect(columnB).toHaveText("A");
 });
