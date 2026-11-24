@@ -2,6 +2,8 @@ import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./tests",
+  globalSetup: "./globalSetup.js",
+  globalTeardown: "./globalTeardown.js",
 
   fullyParallel: true,
 
@@ -21,11 +23,7 @@ export default defineConfig({
 
     trace: "on",
     screenshot: "on",
-
-    viewport: {
-      width: 1280,
-      height: 720,
-    },
+    storageState: "state.js",
   },
 
   projects: [
