@@ -7,12 +7,12 @@ export default defineConfig({
 
   reporter: "html",
 
-  globalSetup: "./globalSetup.js",
-  globalTeardown: "./globalTeardown.js",
+  //globalSetup: "./globalSetup.js",
+  //globalTeardown: "./globalTeardown.js",
 
   use: {
     baseURL: "https://the-internet.herokuapp.com",
-    storageState: "state.json",
+    //storageState: "state.json",
     trace: "on-first-retry",
     screenshot: "only-on-failure",
   },
